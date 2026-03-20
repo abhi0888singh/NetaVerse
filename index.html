@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Neta Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <a href="about.html" style="color:white;">About</a>
+</head>
+<body>
+
+<header>
+ <h1> Neta<span style="color:#60a5fa;">Verse</span></h1>
+  <p class="tagline">Explore India’s Political Universe</p>
+
+  <input type="text" id="search" placeholder="Search politicians...">
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<div id="filters">
+  <select id="stateFilter">
+    <option value="">Select State</option>
+  </select>
+</div>
+
+<div id="candidates"></div>
+
+<!-- Wikipedia Modal -->
+<div id="wikiModal">
+  <div id="wikiContent">
+    <span id="closeBtn"></span>
+    <iframe id="wikiFrame"></iframe>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
