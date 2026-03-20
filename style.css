@@ -21,7 +21,6 @@ header {
 
 header h1 {
   font-size: 34px;
-  letter-spacing: 1px;
   margin-bottom: 5px;
 }
 
@@ -31,7 +30,7 @@ header h1 {
   margin-bottom: 10px;
 }
 
-/* 🔗 NAVBAR */
+/* 🔗 NAV */
 nav {
   margin-top: 10px;
 }
@@ -118,7 +117,7 @@ button:hover {
   background: #1d4ed8;
 }
 
-/* 📖 MODAL (WIKIPEDIA VIEW) */
+/* 📖 MODAL */
 #wikiModal {
   display: none;
   position: fixed;
@@ -157,31 +156,47 @@ button:hover {
   z-index: 1000;
 }
 
-/* 📄 ABOUT PAGE */
-.about-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
+/* ========================= */
+/* 📄 ABOUT PAGE (PREMIUM) */
+/* ========================= */
+
+.about-card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
-.about-container h2 {
+.about-card h2 {
   margin-top: 20px;
   color: #60a5fa;
+  font-size: 20px;
+}
+
+.about-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #93c5fd;
+  font-style: italic;
 }
 
 .email {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.role {
-  color: #ccc;
+.about-card strong {
+  font-size: 16px;
 }
 
-/* 📱 MOBILE RESPONSIVE */
+/* 📱 MOBILE */
 @media(max-width: 600px) {
   header h1 {
     font-size: 26px;
@@ -193,5 +208,10 @@ button:hover {
 
   .profile {
     height: 150px;
+  }
+
+  .about-card {
+    margin: 20px;
+    padding: 20px;
   }
 }
