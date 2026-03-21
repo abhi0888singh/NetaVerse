@@ -120,8 +120,12 @@ async function displayCandidates(list) {
     <p><b>Party:</b> ${c.party}</p>
 
     <div class="btn-group">
-<button onclick="openWiki('${c.name}')">Wikipedia</button>
-      <button onclick="openADR('${c.name}')">View Affidavit</button>
+<a class="btn" href="https://en.m.wikipedia.org/wiki/${c.name.replace(/ /g,'_')}" target="_blank">
+  View Profile
+</a>
+      <a href="https://www.google.com/search?q=${c.name}+myneta" target="_blank">
+  View Affidavit
+</a>
     </div>
   </div>
 `;
