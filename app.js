@@ -94,9 +94,8 @@ document.getElementById("closeBtn").onclick = () => modal.style.display = "none"
 
 // Open Wikipedia
 function openWiki(name) {
-  const url = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g,"_");
-  frame.src = url;
-  modal.style.display = "block";
+  const url = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g, "_");
+  window.open(url, "_blank"); // 🔥 Opens directly
 }
 
 // Open ADR
@@ -121,7 +120,7 @@ async function displayCandidates(list) {
     <p><b>Party:</b> ${c.party}</p>
 
     <div class="btn-group">
-      <button onclick="openWiki('${c.name}')">Wikipedia</button>
+<button onclick="openWiki('${c.name}')">Wikipedia</button>
       <button onclick="openADR('${c.name}')">View Affidavit</button>
     </div>
   </div>
