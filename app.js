@@ -100,12 +100,12 @@ function openWiki(name) {
 }
 
 // Open ADR
+
 function openADR(name) {
-  const query = name.replace(/ /g, "+");
-  const url = "https://www.myneta.info/search.php?query=" + query;
+  const query = name + " myneta";
+  const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
   window.open(url, "_blank");
 }
-
 // Display
 async function displayCandidates(list) {
   container.innerHTML = "Loading...";
