@@ -1,3 +1,5 @@
+// 🌐 NetaVerse - Full App JS
+
 const data = [
 
   {name:"Narendra Modi",party:"BJP",state:"UP",constituency:"Varanasi"},
@@ -60,50 +62,51 @@ const data = [
   {name:"Sushil Kumar Modi",party:"BJP",state:"Bihar",constituency:"Rajya Sabha"}
 ];
 
+// Elements
 const container = document.getElementById("candidates");
 const searchInput = document.getElementById("search");
 const stateFilter = document.getElementById("stateFilter");
 
-// 🔥 STATE FILTER AUTO LOAD
+// Load states
 const states = [...new Set(data.map(d => d.state))];
 states.forEach(s => {
-  const opt = document.createElement("option");
+  let opt = document.createElement("option");
   opt.value = s;
   opt.textContent = s;
   stateFilter.appendChild(opt);
 });
 
-// 🔥 IMAGE CACHE (performance boost)
-const imageCache = {};
-
-// 🔥 FETCH IMAGE FROM WIKIPEDIA
+// Fetch Wikipedia Image
 async function getImage(name) {
-  if (imageCache[name]) return imageCache[name];
-
   try {
     const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${name}`);
     const json = await res.json();
-    const img = json.thumbnail?.source || "https://via.placeholder.com/150";
-    imageCache[name] = img;
-    return img;
+    return json.thumbnail?.source || "https://via.placeholder.com/300x200";
   } catch {
-    return "https://via.placeholder.com/150";
+    return "https://via.placeholder.com/300x200";
   }
 }
 
-// 🔥 MODAL
+// Modal
 const modal = document.getElementById("wikiModal");
 const frame = document.getElementById("wikiFrame");
 document.getElementById("closeBtn").onclick = () => modal.style.display = "none";
 
-// 🔥 OPEN WIKI
+// Open Wikipedia
 function openWiki(name) {
   const url = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g,"_");
   frame.src = url;
   modal.style.display = "block";
 }
 
-// 🔥 DISPLAY
+// Open ADR
+function openADR(name) {
+  const query = name.replace(/ /g, "+");
+  const url = "https://www.myneta.info/search.php?query=" + query;
+  window.open(url, "_blank");
+}
+
+// Display
 async function displayCandidates(list) {
   container.innerHTML = "Loading...";
 
@@ -116,11 +119,9 @@ async function displayCandidates(list) {
         <h2>${c.name}</h2>
         <p><b>Constituency:</b> ${c.constituency}</p>
         <p><b>Party:</b> ${c.party}</p>
-        <p><b>State:</b> ${c.state}</p>
 
-        <button onclick="openWiki('${c.name}')">
-          View Full Profile
-        </button>
+        <button onclick="openWiki('${c.name}')">Wikipedia</button>
+        <button onclick="openADR('${c.name}')">ADR Profile</button>
       </div>
     `;
   }));
@@ -128,7 +129,7 @@ async function displayCandidates(list) {
   container.innerHTML = cards.join("");
 }
 
-// 🔍 FILTER
+// Filters
 function applyFilters() {
   const search = searchInput.value.toLowerCase();
   const state = stateFilter.value;
@@ -144,9 +145,8 @@ function applyFilters() {
   displayCandidates(filtered);
 }
 
-// EVENTS
 searchInput.addEventListener("input", applyFilters);
 stateFilter.addEventListener("change", applyFilters);
 
-// INIT
+// Initial Load
 displayCandidates(data);
