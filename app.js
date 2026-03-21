@@ -113,17 +113,19 @@ async function displayCandidates(list) {
   const cards = await Promise.all(list.map(async c => {
     const img = await getImage(c.name);
 
-    return `
-      <div class="card">
-        <img src="${img}" class="profile"/>
-        <h2>${c.name}</h2>
-        <p><b>Constituency:</b> ${c.constituency}</p>
-        <p><b>Party:</b> ${c.party}</p>
+      return `
+  <div class="card">
+    <img src="${img}" class="profile"/>
+    <h2>${c.name}</h2>
+    <p><b>Constituency:</b> ${c.constituency}</p>
+    <p><b>Party:</b> ${c.party}</p>
 
-        <button onclick="openWiki('${c.name}')">Wikipedia</button>
-        <button onclick="openADR('${c.name}')">ADR Profile</button>
-      </div>
-    `;
+    <div class="btn-group">
+      <button onclick="openWiki('${c.name}')">Wikipedia</button>
+      <button onclick="openADR('${c.name}')">View Affidavit</button>
+    </div>
+  </div>
+`;
   }));
 
   container.innerHTML = cards.join("");
