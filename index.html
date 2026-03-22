@@ -1,42 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Neta Pro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NetaVerse – India’s Political Intelligence Platform</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Explore Indian politicians, Bihar government projects, and political insights on NetaVerse.">
+  <meta name="keywords" content="Indian politicians, Bihar projects, NetaVerse, MLA list, political data India">
+  <meta name="author" content="Abhijeet Singh">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="NetaVerse - Explore Indian politicians, constituencies, and profiles easily.">
-<meta name="keywords" content="Indian politicians, MLA list, MP list, NetaVerse, election data India">
-<meta name="author" content="Abhijeet Singh">
-<title>NetaVerse - Indian Political Database</title>
 </head>
+
 <body>
 
-<header>
- <h1> Neta<span style="color:#60a5fa;">Verse</span></h1>
-  <p class="tagline">Explore India’s Political Universe</p>
+  <!-- HEADER -->
+  <header>
+    <h1>Neta<span>Verse</span></h1>
+    <p class="tagline">Explore India’s Political Universe</p>
 
-  <input type="text" id="search" placeholder="Search politicians...">
+    <!-- NAVBAR -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
-<div id="filters">
-  <select id="stateFilter">
-    <option value="">Select State</option>
-  </select>
-</div>
+    <!-- SEARCH -->
+    <input type="text" id="search" placeholder="Search politicians...">
 
-<div id="candidates"></div>
+  </header>
 
-<!-- Wikipedia Modal -->
-<div id="wikiModal">
-  <div id="wikiContent">
-    <span id="closeBtn"></span>
-    <iframe id="wikiFrame"></iframe>
+  <!-- FILTER -->
+  <div class="filter-section">
+    <select id="stateFilter">
+      <option value="">Select State</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Delhi">Delhi</option>
+    </select>
   </div>
-</div>
 
-<script src="app.js"></script>
+  <!-- POLITICIANS SECTION -->
+  <section>
+    <h2 class="section-title">Top Politicians 🇮🇳</h2>
+    <div id="container" class="card-container"></div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section>
+    <h2 class="section-title">Bihar Mega Projects 🚧</h2>
+    <div id="projectContainer"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 NetaVerse</p>
+    <p>Founder & Editor-in-Chief: <strong>Abhijeet Singh</strong></p>
+  </footer>
+
+  <!-- JS -->
+  <script src="app.js"></script>
+
 </body>
 </html>
