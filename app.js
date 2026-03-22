@@ -101,13 +101,6 @@ document.addEventListener("click", (e) => {
   if(e.target.id === "closeBtn") modal.style.display = "none";
 });
 
-// ---------------- OPEN WIKI ----------------
-function openWiki(name) {
-  const frame = document.getElementById("wikiFrame");
-  frame.src = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g, "_");
-  modal.style.display = "block";
-}
-
 // ---------------- ADR ----------------
 function openADR(name) {
   const url = "https://www.google.com/search?q=" + encodeURIComponent(name + " myneta affidavit");
@@ -129,9 +122,9 @@ async function displayCandidates(list) {
         <p>${c.party} • ${c.state}</p>
 
         <div class="btn-group">
-          <button onclick="openWiki('${c.name}')">Wikipedia</button>
-          <button onclick="openADR('${c.name}')">ADR</button>
-        </div>
+  <a href="wiki.html?name=${c.name.replace(/ /g,'_')}">Wikipedia</a>
+  <button onclick="openADR('${c.name}')">ADR</button>
+</div>
       </div>
     `;
   }));
