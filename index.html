@@ -1,61 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>NetaVerse – Explore Indian Politicians</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Explore Indian politicians, their profiles, constituencies, and affidavits on NetaVerse.">
-  <meta name="keywords" content="Indian politicians, MLA list, MP list, NetaVerse, political data India">
-  <meta name="author" content="Abhijeet Singh">
-
-  <!-- Favicon -->
-  <link rel="icon" href="logo.png">
-
-  <!-- CSS -->
+  <title>My Neta Pro</title>
   <link rel="stylesheet" href="style.css">
+<meta name="description" content="NetaVerse - Explore Indian politicians, constituencies, and profiles easily.">
+<meta name="keywords" content="Indian politicians, MLA list, MP list, NetaVerse, election data India">
+<meta name="author" content="Abhijeet Singh">
+<title>NetaVerse - Indian Political Database</title>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Neta<span>Verse</span></h1>
-    <p class="tagline">India’s Political Intelligence Platform</p>
+<header>
+  <h1>🌐 NetaVerse</h1>
+  <p class="tagline">Explore India’s Political Universe</p>
 
-    <!-- NAV -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-    </nav>
+  <input type="text" id="search" placeholder="Search politicians...">
 
-    <!-- SEARCH -->
-    <input type="text" id="search" placeholder="Search politicians...">
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<div id="filters">
+  <select id="stateFilter">
+    <option value="">Select State</option>
+  </select>
+</div>
 
-  <!-- FILTER SECTION -->
-  <div class="filter-section">
-    <select id="stateFilter">
-      <option value="">Select State</option>
-    </select>
+<div id="candidates"></div>
+
+<!-- Wikipedia Modal -->
+<div id="wikiModal">
+  <div id="wikiContent">
+    <span id="closeBtn">✖</span>
+    <iframe id="wikiFrame"></iframe>
   </div>
+</div>
 
-  <!-- POLITICIANS SECTION -->
-  <section>
-    <h2 class="section-title">Top Indian Politicians 🇮🇳</h2>
-    <div id="candidates" class="card-container"></div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 NetaVerse</p>
-    <p>Founder & Editor-in-Chief: <strong>Abhijeet Singh</strong></p>
-  </footer>
-
-  <!-- JS -->
-  <script src="app.js"></script>
-
+<script src="app.js"></script>
 </body>
 </html>
