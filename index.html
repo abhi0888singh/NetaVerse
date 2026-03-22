@@ -1,32 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Neta Pro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NetaVerse – Explore Indian Politicians</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Explore Indian politicians, their profiles, constituencies, and affidavits on NetaVerse.">
+  <meta name="keywords" content="Indian politicians, MLA list, MP list, NetaVerse, political data India">
+  <meta name="author" content="Abhijeet Singh">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <h1>🇮🇳 My Neta Pro</h1>
-  <input type="text" id="search" placeholder="Search leader...">
-</header>
+  <!-- HEADER -->
+  <header>
+    <h1>Neta<span>Verse</span></h1>
+    <p class="tagline">India’s Political Intelligence Platform</p>
 
-<div id="filters">
-  <select id="stateFilter">
-    <option value="">Select State</option>
-  </select>
-</div>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
 
-<div id="candidates"></div>
+    <!-- SEARCH -->
+    <input type="text" id="search" placeholder="Search politicians...">
+  </header>
 
-<!-- Wikipedia Modal -->
-<div id="wikiModal">
-  <div id="wikiContent">
-    <span id="closeBtn">✖</span>
-    <iframe id="wikiFrame"></iframe>
+  <!-- FILTER SECTION -->
+  <div class="filter-section">
+    <select id="stateFilter">
+      <option value="">Select State</option>
+    </select>
   </div>
-</div>
 
-<script src="app.js"></script>
+  <!-- POLITICIANS SECTION -->
+  <section>
+    <h2 class="section-title">Top Indian Politicians 🇮🇳</h2>
+    <div id="candidates" class="card-container"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 NetaVerse</p>
+    <p>Founder & Editor-in-Chief: <strong>Abhijeet Singh</strong></p>
+  </footer>
+
+  <!-- JS -->
+  <script src="app.js"></script>
+
 </body>
 </html>
