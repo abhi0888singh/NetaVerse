@@ -61,102 +61,85 @@ const data = [
   {name:"Sushma Swaraj",party:"BJP",state:"MP",constituency:"Vidisha"},
   {name:"Sushil Kumar Modi",party:"BJP",state:"Bihar",constituency:"Rajya Sabha"}
 ];
-
-// Elements
+// ---------------- ELEMENTS ----------------
 const container = document.getElementById("candidates");
 const searchInput = document.getElementById("search");
 const stateFilter = document.getElementById("stateFilter");
 
-// Load states
+// ---------------- LOAD STATES ----------------
 const states = [...new Set(data.map(d => d.state))];
 states.forEach(s => {
-  let opt = document.createElement("option");
+  const opt = document.createElement("option");
   opt.value = s;
   opt.textContent = s;
   stateFilter.appendChild(opt);
 });
 
-// Fetch Wikipedia Image
+// ---------------- FETCH IMAGE ----------------
 async function getImage(name) {
   try {
     const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${name}`);
     const json = await res.json();
-    return json.thumbnail?.source || "https://via.placeholder.com/300x200";
+    return json.thumbnail?.source || "https://via.placeholder.com/300";
   } catch {
-    return "https://via.placeholder.com/300x200";
+    return "https://via.placeholder.com/300";
   }
 }
 
-// Modal
-const modal = document.getElementById("wikiModal");
-const frame = document.getElementById("wikiFrame");
-document.getElementById("closeBtn").onclick = () => modal.style.display = "none";
+// ---------------- MODAL ----------------
+const modal = document.createElement("div");
+modal.id = "wikiModal";
+modal.innerHTML = `
+  <div class="modal-content">
+    <span id="closeBtn">✖</span>
+    <iframe id="wikiFrame"></iframe>
+  </div>
+`;
+document.body.appendChild(modal);
 
-// Open Wikipedia
+document.addEventListener("click", (e) => {
+  if(e.target.id === "closeBtn") modal.style.display = "none";
+});
+
+// ---------------- OPEN WIKI ----------------
 function openWiki(name) {
-  const url = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g, "_");
-  window.open(url, "_blank"); // 🔥 Opens directly
+  const frame = document.getElementById("wikiFrame");
+  frame.src = "https://en.m.wikipedia.org/wiki/" + name.replace(/ /g, "_");
+  modal.style.display = "block";
 }
 
-// Open ADR
-
+// ---------------- ADR ----------------
 function openADR(name) {
-  const query = name + " myneta";
-  const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+  const url = "https://www.google.com/search?q=" + encodeURIComponent(name + " myneta affidavit");
   window.open(url, "_blank");
 }
-    card.className = "card";
 
-    card.innerHTML = `
-      <h3>${p.name}</h3>
-      <p><strong>Region:</strong> ${p.region}</p>
-      <p><strong>Budget:</strong> ${p.budget}</p>
-      <p><strong>Status:</strong> ${p.status}</p>
-      <p><strong>Timeline:</strong> ${p.start} - ${p.end}</p>
-
-      <div class="progress-bar">
-        <div style="width:${progress}%"></div>
-      </div>
-
-      <div class="btn-group">
-        <button onclick="openProjectLink('${p.name}')">Read Full Details</button>
-      </div>
-    `;
-
-    container.appendChild(card);
-  });
-}
-
-// Display
+// ---------------- DISPLAY ----------------
 async function displayCandidates(list) {
   container.innerHTML = "Loading...";
 
   const cards = await Promise.all(list.map(async c => {
     const img = await getImage(c.name);
 
-      return `
-  <div class="card">
-    <img src="${img}" class="profile"/>
-    <h2>${c.name}</h2>
-    <p><b>Constituency:</b> ${c.constituency}</p>
-    <p><b>Party:</b> ${c.party}</p>
+    return `
+      <div class="card">
+        <img src="${img}" class="profile"/>
+        <h2>${c.name}</h2>
+        <p><b>${c.constituency}</b></p>
+        <p>${c.party} • ${c.state}</p>
 
-    <div class="btn-group">
-<a class="btn" href="https://en.m.wikipedia.org/wiki/${c.name.replace(/ /g,'_')}" target="_blank">
-  View Profile
-</a>
-      <a href="https://www.google.com/search?q=${c.name}+myneta" target="_blank">
-  View Affidavit
-</a>
-    </div>
-  </div>
-`;
+        <div class="btn-group">
+          <button onclick="openWiki('${c.name}')">Wikipedia</button>
+          <button onclick="openADR('${c.name}')">ADR</button>
+        </div>
+      </div>
+    `;
   }));
 
   container.innerHTML = cards.join("");
 }
 
-// Filters
+// ---------------- FILTER ----------------
 function applyFilters() {
   const search = searchInput.value.toLowerCase();
   const state = stateFilter.value;
@@ -165,15 +148,16 @@ function applyFilters() {
     c.name.toLowerCase().includes(search)
   );
 
-  if(state) {
+  if (state) {
     filtered = filtered.filter(c => c.state === state);
   }
 
   displayCandidates(filtered);
 }
 
+// ---------------- EVENTS ----------------
 searchInput.addEventListener("input", applyFilters);
 stateFilter.addEventListener("change", applyFilters);
 
-// Initial Load
+// ---------------- INIT ----------------
 displayCandidates(data);
