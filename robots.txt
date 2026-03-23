@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abhio888singh.github.io/NetaVerse/sitemap.xml
+Sitemap: https://abhi0888singh.github.io/NetaVerse/sitemap.xml
