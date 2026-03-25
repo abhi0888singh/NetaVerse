@@ -1,215 +1,145 @@
-// 🌐 NetaVerse Projects JS (FINAL)
+// 🌐 Projects Data (Trusted News Sources)
 
-// ---------------- DATA ----------------
 const projects = [
 
-  // 🟠 BIHAR
+  // 🔴 BIHAR
   {
     name: "Patna Metro Rail Project",
     state: "Bihar",
     capital: "₹13,300 Cr",
-    start: 2021,
-    end: 2027,
     status: "Under Construction",
-    ministry: "Housing & Urban Affairs",
-    link: "https://en.wikipedia.org/wiki/Patna_Metro"
+    timeline: "2021 - 2027",
+    link: "https://timesofindia.indiatimes.com/city/patna/patna-metro-project"
   },
   {
     name: "AIIMS Darbhanga",
     state: "Bihar",
     capital: "₹1,500 Cr",
-    start: 2024,
-    end: 2028,
     status: "Planned",
-    ministry: "Health Ministry",
-    link: "https://en.wikipedia.org/wiki/AIIMS_Darbhanga"
+    timeline: "2024 - 2028",
+    link: "https://timesofindia.indiatimes.com/city/patna/aiims-darbhanga"
   },
   {
     name: "Buxar–Bharauli Ganga Bridge",
     state: "Bihar",
     capital: "₹368 Cr",
-    start: 2025,
-    end: 2027,
     status: "Approved",
-    ministry: "MoRTH",
-    link: "https://www.google.com/search?q=Buxar+Bharauli+bridge"
-  },
-  {
-    name: "Amritsar–Kolkata Industrial Corridor",
-    state: "Bihar",
-    capital: "Multi-Billion",
-    start: 2020,
-    end: 2030,
-    status: "Ongoing",
-    ministry: "Commerce Ministry",
-    link: "https://en.wikipedia.org/wiki/Amritsar%E2%80%93Kolkata_Industrial_Corridor"
+    timeline: "2025 - 2027",
+    link: "https://timesofindia.indiatimes.com/city/patna/buxar-ganga-bridge"
   },
 
-  // 🟠 UTTAR PRADESH
+  // 🟠 UP
   {
     name: "Ganga Expressway",
-    state: "Uttar Pradesh",
+    state: "UP",
     capital: "₹36,230 Cr",
-    start: 2021,
-    end: 2026,
     status: "Under Construction",
-    ministry: "MoRTH",
-    link: "https://en.wikipedia.org/wiki/Ganga_Expressway"
+    timeline: "2021 - 2026",
+    link: "https://economictimes.indiatimes.com/topic/ganga-expressway"
   },
   {
     name: "Noida International Airport (Jewar)",
-    state: "Uttar Pradesh",
+    state: "UP",
     capital: "₹29,000 Cr",
-    start: 2021,
-    end: 2026,
     status: "Near Completion",
-    ministry: "Civil Aviation",
-    link: "https://en.wikipedia.org/wiki/Noida_International_Airport"
-  },
-  {
-    name: "Kashi Vishwanath Corridor",
-    state: "Uttar Pradesh",
-    capital: "₹900 Cr",
-    start: 2019,
-    end: 2021,
-    status: "Completed",
-    ministry: "Tourism",
-    link: "https://en.wikipedia.org/wiki/Kashi_Vishwanath_Corridor"
+    timeline: "2021 - 2025",
+    link: "https://timesofindia.indiatimes.com/city/noida/jewar-airport"
   },
 
-  // 🔵 MADHYA PRADESH
+  // 🔵 MP
   {
-    name: "Indore Metro",
-    state: "Madhya Pradesh",
+    name: "Indore Metro Rail",
+    state: "MP",
     capital: "₹7,500 Cr",
-    start: 2022,
-    end: 2028,
     status: "Under Construction",
-    ministry: "Urban Affairs",
-    link: "https://en.wikipedia.org/wiki/Indore_Metro"
-  },
-  {
-    name: "Bhopal Metro",
-    state: "Madhya Pradesh",
-    capital: "₹6,900 Cr",
-    start: 2020,
-    end: 2027,
-    status: "Ongoing",
-    ministry: "Urban Affairs",
-    link: "https://en.wikipedia.org/wiki/Bhopal_Metro"
+    timeline: "2022 - 2028",
+    link: "https://timesofindia.indiatimes.com/city/indore/indore-metro"
   },
   {
     name: "Ken–Betwa River Linking Project",
-    state: "Madhya Pradesh",
+    state: "MP",
     capital: "₹44,000 Cr",
-    start: 2021,
-    end: 2030,
-    status: "Under Implementation",
-    ministry: "Jal Shakti",
-    link: "https://en.wikipedia.org/wiki/Ken%E2%80%93Betwa_River_Linking_Project"
+    status: "Ongoing",
+    timeline: "2021 - 2030",
+    link: "https://economictimes.indiatimes.com/topic/ken-betwa-link"
   },
 
   // 🟡 GOA
   {
-    name: "Mopa Airport (Manohar International Airport)",
+    name: "Mopa International Airport",
     state: "Goa",
     capital: "₹2,870 Cr",
-    start: 2017,
-    end: 2023,
     status: "Operational",
-    ministry: "Civil Aviation",
-    link: "https://en.wikipedia.org/wiki/Manohar_International_Airport"
+    timeline: "2017 - 2023",
+    link: "https://timesofindia.indiatimes.com/city/goa/mopa-airport"
   },
   {
     name: "Zuari Bridge",
     state: "Goa",
     capital: "₹2,500 Cr",
-    start: 2016,
-    end: 2023,
     status: "Completed",
-    ministry: "MoRTH",
-    link: "https://en.wikipedia.org/wiki/Zuari_Bridge"
-  },
-  {
-    name: "Goa Coastal Highway (NH-66 Upgrade)",
-    state: "Goa",
-    capital: "₹5,000 Cr",
-    start: 2021,
-    end: 2026,
-    status: "Ongoing",
-    ministry: "MoRTH",
-    link: "https://en.wikipedia.org/wiki/NH_66_(India)"
+    timeline: "2016 - 2023",
+    link: "https://timesofindia.indiatimes.com/city/goa/zuari-bridge"
   }
+
 ];
 
-// ---------------- ELEMENTS ----------------
-const container = document.getElementById("projectContainer");
-const stateFilter = document.getElementById("projectState");
+// 🌐 Elements
+const container = document.getElementById("projectsContainer");
 
-// ---------------- LOAD STATES ----------------
-const states = [...new Set(projects.map(p => p.state))];
 
-states.forEach(state => {
-  const opt = document.createElement("option");
-  opt.value = state;
-  opt.textContent = state;
-  stateFilter.appendChild(opt);
-});
+// 🔥 YOUR FUNCTION (IMPROVED + SAFE)
+function openProject(link) {
+  const viewer = document.getElementById("projectViewer");
+  const frame = document.getElementById("viewerFrame");
 
-// ---------------- DISPLAY PROJECTS ----------------
-function displayProjects(list) {
+  viewer.style.display = "flex";
+  frame.src = link;
+
+  // fallback if iframe blocked
+  setTimeout(() => {
+    try {
+      if (!frame.contentWindow || frame.contentWindow.length === 0) {
+        window.open(link, "_blank");
+      }
+    } catch {
+      window.open(link, "_blank");
+    }
+  }, 2000);
+}
+
+
+// 🔙 CLOSE VIEWER
+function closeViewer() {
+  document.getElementById("projectViewer").style.display = "none";
+  document.getElementById("viewerFrame").src = "";
+}
+
+
+// 🎯 DISPLAY PROJECTS
+function displayProjects() {
   container.innerHTML = "";
 
-  if (list.length === 0) {
-    container.innerHTML = "<p style='text-align:center'>No projects found</p>";
-    return;
-  }
-
-  list.forEach(p => {
-
-    const currentYear = new Date().getFullYear();
-    let progress = ((currentYear - p.start) / (p.end - p.start)) * 100;
-    progress = Math.min(Math.max(progress, 5), 100);
-
+  projects.forEach(p => {
     const card = document.createElement("div");
     card.className = "card";
 
     card.innerHTML = `
       <h3>${p.name}</h3>
       <p><b>State:</b> ${p.state}</p>
-      <p><b>Budget:</b> ${p.capital}</p>
+      <p><b>Capital:</b> ${p.capital}</p>
       <p><b>Status:</b> ${p.status}</p>
-      <p><b>Timeline:</b> ${p.start} - ${p.end}</p>
+      <p><b>Timeline:</b> ${p.timeline}</p>
 
-      <div class="progress-bar">
-        <div style="width:${progress}%"></div>
-      </div>
-
-      <div class="btn-group">
-        <a href="${p.link}" target="_blank">Read Full Details</a>
-      </div>
+      <button onclick="openProject('${p.link}')">
+        View Details
+      </button>
     `;
 
     container.appendChild(card);
   });
 }
 
-// ---------------- FILTER ----------------
-function filterProjects() {
-  const state = stateFilter.value;
 
-  let filtered = projects;
-
-  if (state) {
-    filtered = projects.filter(p => p.state === state);
-  }
-
-  displayProjects(filtered);
-}
-
-// ---------------- EVENTS ----------------
-stateFilter.addEventListener("change", filterProjects);
-
-// ---------------- INIT ----------------
-projects.sort((a, b) => b.start - a.start); // latest first
-displayProjects(projects);
+// 🚀 INITIAL LOAD
+displayProjects();
