@@ -35,12 +35,24 @@
 </section>
 
 <!-- 📊 PROJECT CARDS -->
-<section id="projectContainer"></section>
+<section id="projectsContainer"></section>
 
 <!-- 🔻 FOOTER -->
 <footer>
   <p>© 2026 NetaVerse | Built by Abhijeet Singh</p>
 </footer>
+
+<!-- 🔥 VIEWER (FIXED POSITION) -->
+<div id="projectViewer" class="viewer">
+  <div class="viewer-header">
+    <button onclick="closeViewer()">⬅ Back</button>
+    <span class="verified">✔ Verified Source</span>
+  </div>
+
+  <div id="loader" class="loader"></div>
+
+  <iframe id="viewerFrame"></iframe>
+</div>
 
 <!-- JS -->
 <script src="projects.js"></script>
