@@ -1,5 +1,4 @@
 // 🌐 Projects Data (Trusted News Sources)
-
 const projects = [
 
   // 🔴 BIHAR
@@ -86,17 +85,25 @@ const projects = [
 
 // 🌐 Elements
 const container = document.getElementById("projectsContainer");
+const viewer = document.getElementById("projectViewer");
+const frame = document.getElementById("viewerFrame");
+const loader = document.getElementById("loader");
 
-
-// 🔥 YOUR FUNCTION (IMPROVED + SAFE)
+// 🔥 OPEN PROJECT (IMPROVED)
 function openProject(link) {
-  const viewer = document.getElementById("projectViewer");
-  const frame = document.getElementById("viewerFrame");
-
   viewer.style.display = "flex";
+  loader.style.display = "block";
+  frame.style.display = "none";
+
   frame.src = link;
 
-  // fallback if iframe blocked
+  // When loaded
+  frame.onload = () => {
+    loader.style.display = "none";
+    frame.style.display = "block";
+  };
+
+  // Fallback if blocked
   setTimeout(() => {
     try {
       if (!frame.contentWindow || frame.contentWindow.length === 0) {
@@ -108,13 +115,11 @@ function openProject(link) {
   }, 2000);
 }
 
-
 // 🔙 CLOSE VIEWER
 function closeViewer() {
-  document.getElementById("projectViewer").style.display = "none";
-  document.getElementById("viewerFrame").src = "";
+  viewer.style.display = "none";
+  frame.src = "";
 }
-
 
 // 🎯 DISPLAY PROJECTS
 function displayProjects() {
@@ -131,6 +136,8 @@ function displayProjects() {
       <p><b>Status:</b> ${p.status}</p>
       <p><b>Timeline:</b> ${p.timeline}</p>
 
+      <span class="verified">✔ Verified Source</span><br><br>
+
       <button onclick="openProject('${p.link}')">
         View Details
       </button>
@@ -139,7 +146,6 @@ function displayProjects() {
     container.appendChild(card);
   });
 }
-
 
 // 🚀 INITIAL LOAD
 displayProjects();
