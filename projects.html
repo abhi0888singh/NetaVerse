@@ -7,7 +7,7 @@
   <title>NetaVerse Projects | India Development Tracker</title>
 
   <meta name="description" content="Explore major government projects in India state-wise. Bihar, UP, MP, Goa projects on NetaVerse.">
-  <meta name="keywords" content="India projects, Bihar projects, UP projects, infrastructure India, NetaVerse">
+  <meta name="keywords" content="India projects, Bihar projects, UP projects, infrastructure India">
   <meta name="author" content="Abhijeet Singh">
 
   <link rel="stylesheet" href="style.css">
@@ -15,7 +15,6 @@
 
 <body>
 
-<!-- 🔷 HEADER -->
 <header>
   <h1>🌐 NetaVerse</h1>
   <p class="tagline">India’s Political & Development Intelligence Platform</p>
@@ -27,34 +26,19 @@
   </nav>
 </header>
 
-<!-- 🔍 FILTER -->
-<section id="filters">
-  <select id="projectState">
-    <option value="">All States</option>
-  </select>
-</section>
-
-<!-- 📊 PROJECT CARDS -->
 <section id="projectsContainer"></section>
 
-<!-- 🔻 FOOTER -->
-<footer>
-  <p>© 2026 NetaVerse | Built by Abhijeet Singh</p>
-</footer>
-
-<!-- 🔥 VIEWER (FIXED POSITION) -->
+<!-- 🔥 WIKIPEDIA VIEWER -->
 <div id="projectViewer" class="viewer">
   <div class="viewer-header">
     <button onclick="closeViewer()">⬅ Back</button>
-    <span class="verified">✔ Verified Source</span>
+    <span class="verified">📘 Wikipedia</span>
   </div>
 
   <div id="loader" class="loader"></div>
-
   <iframe id="viewerFrame"></iframe>
 </div>
 
-<!-- JS -->
 <script src="projects.js"></script>
 
 </body>
