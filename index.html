@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NetaVerse - Indian Political Database</title>
+  <title>NetaVerse - Indian Political & Development Intelligence</title>
 
-  <meta name="description" content="NetaVerse - Explore Indian politicians, constituencies, and profiles easily.">
-  <meta name="keywords" content="Indian politicians, MLA list, MP list, NetaVerse, election data India">
+  <meta name="description" content="NetaVerse - Explore Indian politics, politicians, government projects, development, and major news.">
+  <meta name="keywords" content="NetaVerse, Indian politics, politicians, government projects, India news, development, governance">
   <meta name="author" content="Abhijeet Singh">
 
   <link rel="stylesheet" href="style.css">
@@ -15,38 +15,70 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
   <h1>🌐 Neta<span>Verse</span></h1>
-  <p class="tagline">Explore India’s Political Universe</p>
 
+  <p class="tagline">
+    Explore India’s Political Universe
+  </p>
+
+  <!-- NAVIGATION -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="index.html" class="active">Home</a>
     <a href="projects.html">Projects</a>
+    <a href="news.html">News</a>
+    <a href="about.html">About</a>
   </nav>
 
-  <input type="text" id="search" placeholder="Search politicians...">
+  <!-- SEARCH -->
+  <input
+    type="text"
+    id="search"
+    placeholder="Search politicians..."
+    aria-label="Search politicians"
+  >
 </header>
 
-<!-- FILTER -->
+
+<!-- STATE FILTER -->
 <div class="filter-section">
   <select id="stateFilter">
     <option value="">Select State</option>
   </select>
 </div>
 
+
 <!-- POLITICIANS -->
 <section>
-  <h2 class="section-title">Top Politicians 🇮🇳</h2>
+
+  <h2 class="section-title">
+    Top Politicians 🇮🇳
+  </h2>
+
   <div id="candidates" class="card-container"></div>
+
 </section>
+
 
 <!-- FOOTER -->
 <footer>
+
   <p>© 2026 NetaVerse</p>
-  <p>Founder & Editor-in-Chief: <strong>Abhijeet Singh</strong></p>
+
+  <p>
+    Founder & Editor-in-Chief:
+    <strong>Abhijeet Singh</strong>
+  </p>
+
+  <p class="footer-tagline">
+    Politics • Governance • Development • Data
+  </p>
+
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <script src="app.js"></script>
 
 </body>
