@@ -23,8 +23,8 @@ body {
   /* MAIN BACKGROUND */
   background:
     linear-gradient(
-      rgba(5, 25, 45, 0.28),
-      rgba(5, 25, 45, 0.34)
+      rgba(5, 25, 45, 0.26),
+      rgba(5, 25, 45, 0.32)
     ),
     url("images/netaverse-bg.jpg");
 
