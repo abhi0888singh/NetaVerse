@@ -6,6 +6,7 @@ body {
   color: white;
 }
 
+
 /* 🔷 HEADER */
 header {
   text-align: center;
@@ -24,8 +25,9 @@ header h1 {
 .tagline {
   font-size: 14px;
   color: #cbd5f5;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
+
 
 /* =========================================
    ☰ HAMBURGER NAVIGATION
@@ -50,28 +52,35 @@ header h1 {
   margin: 4px 0 0;
 }
 
+
+/* ☰ BUTTON */
+
 .menu-container {
   position: absolute;
-  right: 20px;
-  top: 8px;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1001;
 }
 
 .menu-toggle {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  gap: 5px;
+  gap: 6px;
 
-  border: none;
+  padding: 0;
+  margin: 0;
+
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 12px;
 
-  background: rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.08);
 
   cursor: pointer;
   list-style: none;
@@ -79,60 +88,71 @@ header h1 {
   transition: 0.3s;
 }
 
+
+/* REMOVE DEFAULT TRIANGLE */
+
 .menu-toggle::-webkit-details-marker {
   display: none;
 }
 
 .menu-toggle::marker {
+  content: "";
   display: none;
 }
 
 .menu-toggle:hover {
-  background: rgba(59,130,246,0.20);
+  background: rgba(59,130,246,0.25);
 }
+
+
+/* THREE VISIBLE LINES */
 
 .menu-toggle span {
   display: block;
 
-  width: 20px;
-  height: 2px;
+  width: 26px;
+  height: 3px;
 
-  background: white;
+  background: #ffffff;
 
   border-radius: 10px;
 
   transition: 0.3s;
 }
 
+
+/* MENU PANEL */
+
 .menu-panel {
   position: absolute;
 
-  top: 52px;
+  top: 62px;
   right: 0;
 
-  width: 200px;
+  width: 220px;
 
-  padding: 12px;
+  padding: 14px;
 
-  background: rgba(15,23,42,0.97);
+  background: rgba(15,23,42,0.98);
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
 
-  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.55);
 
-  box-shadow: 0 15px 40px rgba(0,0,0,0.45);
-
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(18px);
 
   z-index: 1000;
 }
 
+
+/* MENU LINKS */
+
 .menu-panel nav {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 
-  gap: 5px;
+  gap: 6px;
 
   margin: 0;
 }
@@ -141,14 +161,14 @@ header h1 {
   display: block;
 
   margin: 0;
-  padding: 10px 12px;
+  padding: 12px 14px;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
   color: white;
   text-decoration: none;
 
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
 
   transition: 0.3s;
@@ -159,21 +179,28 @@ header h1 {
   background: #3b82f6;
 }
 
+
+/* EMAIL + X AREA */
+
 .menu-socials {
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  gap: 12px;
+  gap: 18px;
 
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 15px;
+  padding-top: 15px;
 
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
+
+/* LARGE SOCIAL ICONS */
+
 .social-icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 
   display: flex;
   align-items: center;
@@ -181,12 +208,14 @@ header h1 {
 
   border-radius: 50%;
 
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.12);
 
   color: white;
+
   text-decoration: none;
 
-  font-size: 20px;
+  font-size: 27px;
+  font-weight: bold;
 
   transition: 0.3s;
 }
@@ -196,8 +225,17 @@ header h1 {
   transform: translateY(-2px);
 }
 
+
+/* X */
+
 .x-social {
-  background: #000;
+  background: #000000;
+  color: #ffffff;
+  font-size: 28px;
+}
+
+.x-social:hover {
+  background: #111111;
 }
 
 
@@ -214,6 +252,7 @@ header h1 {
   color: white;
 }
 
+
 /* 🔽 FILTER */
 #filters {
   text-align: center;
@@ -228,6 +267,7 @@ select {
   color: white;
 }
 
+
 /* 📦 GRID (FIXED) */
 #candidates,
 #projectsContainer {
@@ -236,6 +276,7 @@ select {
   gap: 20px;
   padding: 20px;
 }
+
 
 /* 🧊 CARD */
 .card {
@@ -252,6 +293,7 @@ select {
   transform: translateY(-5px);
 }
 
+
 /* 👤 IMAGE */
 .profile {
   width: 100%;
@@ -259,6 +301,7 @@ select {
   object-fit: cover;
   border-radius: 12px;
 }
+
 
 /* 📝 TEXT */
 .card h2,
@@ -272,6 +315,7 @@ select {
   margin: 5px 0;
 }
 
+
 /* 🔘 BUTTON GROUP */
 .btn-group {
   display: flex;
@@ -279,6 +323,7 @@ select {
   justify-content: center;
   margin-top: 10px;
 }
+
 
 /* 🔘 BUTTON */
 .btn-group a,
@@ -301,6 +346,7 @@ select {
   background: #2563eb;
 }
 
+
 /* 📊 PROGRESS BAR */
 .progress-bar {
   width: 100%;
@@ -316,6 +362,7 @@ select {
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
   border-radius: 10px;
 }
+
 
 /* 📄 ABOUT PAGE */
 .about-card {
@@ -350,6 +397,7 @@ select {
   font-size: 16px;
 }
 
+
 /* 🔻 FOOTER */
 footer {
   text-align: center;
@@ -357,6 +405,7 @@ footer {
   font-size: 12px;
   color: #94a3b8;
 }
+
 
 /* 🔥 WIKIPEDIA VIEWER (FULL SCREEN) */
 .viewer {
@@ -406,6 +455,7 @@ footer {
   background: white;
 }
 
+
 /* 🔄 LOADER */
 .loader {
   position: absolute;
@@ -426,19 +476,12 @@ footer {
   }
 }
 
+
 /* 📱 MOBILE */
 @media (max-width: 600px) {
+
   header h1 {
     font-size: 20px;
-  }
-
-  .menu-container {
-    right: 12px;
-    top: 5px;
-  }
-
-  .menu-panel {
-    width: 190px;
   }
 
   .card {
@@ -448,7 +491,32 @@ footer {
   .profile {
     height: 160px;
   }
+
+  .menu-container {
+    right: 10px;
+  }
+
+  .menu-toggle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu-toggle span {
+    width: 24px;
+    height: 3px;
+  }
+
+  .menu-panel {
+    width: 205px;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+  }
 }
+
 
 /* =========================================
    📰 NETAVERSE NEWS SECTION
@@ -681,7 +749,7 @@ footer {
 
 
 /* =========================================
-   📱 MOBILE
+   📱 MOBILE NEWS
 ========================================= */
 
 @media (max-width: 900px) {
@@ -727,6 +795,7 @@ footer {
   }
 
 }
+
 
 /* =========================
    CONTACT PAGE
@@ -846,7 +915,7 @@ footer {
 }
 
 
-/* MOBILE */
+/* CONTACT MOBILE */
 
 @media (max-width: 600px) {
 
