@@ -24,28 +24,182 @@ header h1 {
 .tagline {
   font-size: 14px;
   color: #cbd5f5;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
-/* 🔗 NAVBAR */
-nav {
-  margin-top: 10px;
+/* =========================================
+   ☰ HAMBURGER NAVIGATION
+========================================= */
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  margin: 0 10px;
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 8px;
+.brand {
+  text-align: center;
+}
+
+.brand h1 {
+  margin: 0;
+}
+
+.brand .tagline {
+  margin: 4px 0 0;
+}
+
+.menu-container {
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  z-index: 1001;
+}
+
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.07);
+
+  cursor: pointer;
+  list-style: none;
+
   transition: 0.3s;
 }
 
-nav a:hover,
-nav a.active {
+.menu-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.menu-toggle::marker {
+  display: none;
+}
+
+.menu-toggle:hover {
+  background: rgba(59,130,246,0.20);
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background: white;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.menu-panel {
+  position: absolute;
+
+  top: 52px;
+  right: 0;
+
+  width: 200px;
+
+  padding: 12px;
+
+  background: rgba(15,23,42,0.97);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 14px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(15px);
+
+  z-index: 1000;
+}
+
+.menu-panel nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  gap: 5px;
+
+  margin: 0;
+}
+
+.menu-panel nav a {
+  display: block;
+
+  margin: 0;
+  padding: 10px 12px;
+
+  border-radius: 9px;
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 14px;
+  text-align: left;
+
+  transition: 0.3s;
+}
+
+.menu-panel nav a:hover,
+.menu-panel nav a.active {
   background: #3b82f6;
 }
+
+.menu-socials {
+  display: flex;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 12px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.10);
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  background: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.x-social {
+  background: #000;
+}
+
 
 /* 🔍 SEARCH */
 #search {
@@ -276,6 +430,15 @@ footer {
 @media (max-width: 600px) {
   header h1 {
     font-size: 20px;
+  }
+
+  .menu-container {
+    right: 12px;
+    top: 5px;
+  }
+
+  .menu-panel {
+    width: 190px;
   }
 
   .card {
@@ -564,6 +727,7 @@ footer {
   }
 
 }
+
 /* =========================
    CONTACT PAGE
 ========================= */
@@ -591,86 +755,6 @@ footer {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 25px;
-}
-
-
-/* CONTACT BUTTONS */
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 14px;
-  margin-bottom: 14px;
-
-  border-radius: 14px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  color: white;
-  text-decoration: none;
-
-  transition: 0.3s;
-}
-
-.contact-link:hover {
-  background: rgba(59, 130, 246, 0.20);
-  transform: translateY(-2px);
-}
-
-
-/* ICONS */
-
-.contact-icon {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 12px;
-
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.email-icon {
-  background: white;
-  color: #111827;
-}
-
-.x-icon {
-  background: #000;
-  color: white;
-}
-
-
-/* CONTACT TEXT */
-
-.contact-text {
-  overflow: hidden;
-}
-
-.contact-text strong {
-  display: block;
-  font-size: 15px;
-}
-
-.contact-text small {
-  display: block;
-  margin-top: 4px;
-
-  color: #94a3b8;
-
-  font-size: 13px;
-
-  overflow-wrap: anywhere;
 }
 
 
@@ -769,12 +853,6 @@ footer {
   .contact-card {
     margin: 20px 12px;
     padding: 20px;
-  }
-
-  .contact-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
   }
 
 }
