@@ -1,12 +1,6 @@
-/* =========================================================
-   🇮🇳 NETAVERSE — PREMIUM RESPONSIVE THEME
-   Background: images/netaverse-bg.jpg
-========================================================= */
-
-
-/* =========================================================
+/* =========================================
    🌐 GLOBAL
-========================================================= */
+========================================= */
 
 html {
   overflow-x: hidden;
@@ -14,13 +8,19 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  overflow-x: hidden;
 
-  /* MAIN BACKGROUND */
+  /*
+    NetaVerse background
+    Slightly brighter than before while
+    keeping text as the main focus.
+  */
   background:
     linear-gradient(
       rgba(5, 25, 45, 0.26),
@@ -33,23 +33,31 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
+  color: white;
+  overflow-x: hidden;
+
   min-height: 100vh;
 }
 
 
-/* Keep background visible on mobile/tablets */
-@media (max-width: 900px) {
-  body {
-    background-attachment: scroll;
-    background-position: center top;
-    background-size: cover;
-  }
+/* Better text readability over background */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+label,
+span {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.38);
 }
 
 
-/* =========================================================
+/* =========================================
    🔷 HEADER
-========================================================= */
+========================================= */
 
 header {
   position: sticky;
@@ -57,60 +65,55 @@ header {
   z-index: 2000;
 
   text-align: center;
-  padding: 18px 20px;
+  padding: 18px 70px 18px 20px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(5, 35, 65, 0.88),
-      rgba(10, 55, 90, 0.78)
-    );
+  background: rgba(15, 23, 42, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid rgba(255,255,255,0.14);
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 header h1 {
   margin: 0;
 
-  font-size: 28px;
-  font-weight: 700;
+  font-size: clamp(22px, 3vw, 28px);
 
-  color: #75bfff;
+  color: #60a5fa;
 
-  text-shadow:
-    0 2px 12px rgba(0,120,255,0.35);
+  line-height: 1.2;
 }
 
 .tagline {
-  font-size: 14px;
-  color: #e2efff;
+  font-size: clamp(12px, 1.8vw, 14px);
 
-  margin: 4px 0 0;
+  color: #dbeafe;
 
-  letter-spacing: 0.2px;
+  margin: 5px 0 0;
+
+  line-height: 1.4;
 }
 
 
-/* =========================================================
-   🏷️ HEADER BRAND
-========================================================= */
+/* =========================================
+   🔷 HEADER TOP
+========================================= */
 
 .header-top {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   position: relative;
+
+  width: 100%;
 }
 
 .brand {
   text-align: center;
+
+  max-width: 100%;
 }
 
 .brand h1 {
@@ -118,13 +121,13 @@ header h1 {
 }
 
 .brand .tagline {
-  margin: 4px 0 0;
+  margin: 5px 0 0;
 }
 
 
-/* =========================================================
-   ☰ THREE-LINE MENU
-========================================================= */
+/* =========================================
+   ☰ HAMBURGER NAVIGATION
+========================================= */
 
 .menu-container {
   position: absolute;
@@ -138,14 +141,15 @@ header h1 {
 }
 
 
-/* Prevent background interaction while menu is open */
+/* BLOCK BACKGROUND SCROLL WHEN MENU IS OPEN */
 
 .menu-container[open]::before {
   content: "";
 
   position: fixed;
 
-  inset: 0;
+  top: 0;
+  left: 0;
 
   width: 100vw;
   height: 100vh;
@@ -159,9 +163,7 @@ header h1 {
 }
 
 
-/* =========================================================
-   ☰ MENU BUTTON
-========================================================= */
+/* ☰ BUTTON */
 
 .menu-toggle {
   width: 52px;
@@ -178,28 +180,19 @@ header h1 {
   padding: 0;
   margin: 0;
 
-  border: 1px solid rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
 
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0.07)
-    );
-
-  box-shadow:
-    0 8px 22px rgba(0,0,0,0.22);
+  background: rgba(255,255,255,0.10);
 
   cursor: pointer;
   list-style: none;
 
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
 }
 
 
-/* Remove default triangle */
+/* REMOVE DEFAULT TRIANGLE */
 
 .menu-toggle::-webkit-details-marker {
   display: none;
@@ -210,16 +203,8 @@ header h1 {
   display: none;
 }
 
-
-/* Hover / tap */
-
 .menu-toggle:hover {
-  background: rgba(70,160,255,0.30);
-
-  border-color:
-    rgba(120,190,255,0.45);
-
-  transform: scale(1.04);
+  background: rgba(59,130,246,0.28);
 }
 
 
@@ -228,23 +213,20 @@ header h1 {
 .menu-toggle span {
   display: block;
 
-  width: 27px;
+  width: 26px;
   height: 3px;
 
   background: #ffffff;
 
   border-radius: 10px;
 
-  box-shadow:
-    0 0 7px rgba(255,255,255,0.35);
-
   transition: 0.3s;
 }
 
 
-/* =========================================================
-   📂 MENU PANEL
-========================================================= */
+/* =========================================
+   📋 MENU PANEL
+========================================= */
 
 .menu-panel {
   position: absolute;
@@ -253,33 +235,25 @@ header h1 {
   right: 0;
 
   width: 220px;
+  max-width: calc(100vw - 24px);
 
   padding: 14px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(8,35,60,0.96),
-      rgba(10,50,78,0.94)
-    );
+  background: rgba(15,23,42,0.97);
 
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 16px;
 
-  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.65);
 
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.45);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   z-index: 2200;
 }
 
 
-/* =========================================================
-   🔗 MENU LINKS
-========================================================= */
+/* MENU LINKS */
 
 .menu-panel nav {
   display: flex;
@@ -296,39 +270,26 @@ header h1 {
   margin: 0;
   padding: 12px 14px;
 
-  border-radius: 11px;
+  border-radius: 10px;
 
-  color: #ffffff;
-
+  color: white;
   text-decoration: none;
 
   font-size: 15px;
-  font-weight: 500;
-
   text-align: left;
 
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
 }
 
 .menu-panel nav a:hover,
 .menu-panel nav a.active {
-  background:
-    linear-gradient(
-      135deg,
-      #168cff,
-      #4fa9ff
-    );
-
-  box-shadow:
-    0 5px 15px rgba(0,120,255,0.25);
-
-  transform: translateX(2px);
+  background: #3b82f6;
 }
 
 
-/* =========================================================
-   ✉️ EMAIL + 𝕏
-========================================================= */
+/* =========================================
+   ✉ EMAIL + 𝕏
+========================================= */
 
 .menu-socials {
   display: flex;
@@ -341,26 +302,23 @@ header h1 {
   margin-top: 15px;
   padding-top: 15px;
 
-  border-top:
-    1px solid rgba(255,255,255,0.14);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
+
+
+/* LARGE SOCIAL ICONS */
 
 .social-icon {
   width: 50px;
   height: 50px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
 
-  background:
-    rgba(255,255,255,0.12);
-
-  border:
-    1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.12);
 
   color: white;
 
@@ -369,17 +327,15 @@ header h1 {
   font-size: 27px;
   font-weight: bold;
 
-  transition: all 0.25s ease;
+  transition: 0.3s ease;
+
+  text-shadow: none;
 }
 
 .social-icon:hover {
-  background: #168cff;
+  background: #3b82f6;
 
-  transform:
-    translateY(-3px) scale(1.04);
-
-  box-shadow:
-    0 7px 18px rgba(0,120,255,0.30);
+  transform: translateY(-2px);
 }
 
 
@@ -388,6 +344,7 @@ header h1 {
 .x-social {
   background: #000000;
   color: #ffffff;
+
   font-size: 28px;
 }
 
@@ -396,176 +353,160 @@ header h1 {
 }
 
 
-/* =========================================================
+/* =========================================
    🔍 SEARCH
-========================================================= */
+========================================= */
 
 #search {
-  margin-top: 12px;
+  display: block;
 
-  padding: 12px 14px;
+  margin: 14px auto 0;
 
-  width: 90%;
-  max-width: 400px;
+  padding: 11px 14px;
 
-  border-radius: 12px;
+  width: min(90%, 400px);
 
-  border:
-    1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
 
   outline: none;
 
-  background:
-    rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.12);
 
   color: white;
 
-  backdrop-filter: blur(10px);
+  font-family: inherit;
+  font-size: 14px;
 
-  box-shadow:
-    0 5px 18px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
 }
 
 #search::placeholder {
-  color: #d7e5f5;
-}
-
-#search:focus {
-  border-color: #54adff;
-
-  box-shadow:
-    0 0 0 3px rgba(40,150,255,0.15);
+  color: #cbd5e1;
 }
 
 
-/* =========================================================
+/* =========================================
    🔽 FILTER
-========================================================= */
+========================================= */
 
 #filters {
   text-align: center;
-  margin: 20px;
+
+  margin: 20px auto;
+
+  padding: 0 15px;
 }
 
 select {
+  max-width: 100%;
+
   padding: 10px 14px;
 
   border-radius: 10px;
+  border: none;
 
-  border:
-    1px solid rgba(255,255,255,0.15);
-
-  background:
-    rgba(10,35,55,0.75);
+  background: #1e293b;
 
   color: white;
 
-  backdrop-filter: blur(10px);
+  font-family: inherit;
 }
 
 
-/* =========================================================
+/* =========================================
    📦 GRID
-========================================================= */
+========================================= */
 
 #candidates,
 #projectsContainer {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
+    repeat(auto-fit, minmax(min(250px, 100%), 1fr));
 
   gap: 20px;
+
+  width: min(1250px, 100%);
+
+  margin: 0 auto;
 
   padding: 20px;
 }
 
 
-/* =========================================================
-   🧊 GENERAL CARD
-========================================================= */
+/* =========================================
+   🧊 CARD
+========================================= */
 
 .card {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0.08)
-    );
+  background: rgba(255,255,255,0.09);
 
   padding: 15px;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
   text-align: center;
-
-  border:
-    1px solid rgba(255,255,255,0.15);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.08);
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.38);
+
+  transition: 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-
-  border-color:
-    rgba(100,190,255,0.35);
-
-  box-shadow:
-    0 18px 38px rgba(0,0,0,0.30);
+  transform: translateY(-5px);
 }
 
 
-/* =========================================================
-   👤 PROFILE IMAGE
-========================================================= */
+/* =========================================
+   👤 IMAGE
+========================================= */
 
 .profile {
   width: 100%;
+
   height: 200px;
 
   object-fit: cover;
 
-  border-radius: 14px;
+  border-radius: 12px;
 
   display: block;
 }
 
 
-/* =========================================================
-   📝 CARD TEXT
-========================================================= */
+/* =========================================
+   📝 TEXT
+========================================= */
 
 .card h2,
 .card h3 {
   margin: 10px 0;
 
-  color: #70baff;
+  color: #7db5ff;
 
-  text-shadow:
-    0 2px 8px rgba(0,100,255,0.20);
+  line-height: 1.35;
 }
 
 .card p {
   font-size: 14px;
+
   margin: 5px 0;
 
-  color: #e5eff9;
+  color: #f1f5f9;
+
+  line-height: 1.6;
 }
 
 
-/* =========================================================
+/* =========================================
    🔘 BUTTON GROUP
-========================================================= */
+========================================= */
 
 .btn-group {
   display: flex;
@@ -574,29 +515,26 @@ select {
 
   justify-content: center;
 
+  flex-wrap: wrap;
+
   margin-top: 10px;
 }
 
 
-/* =========================================================
-   🔘 BUTTONS
-========================================================= */
+/* =========================================
+   🔘 BUTTON
+========================================= */
 
 .btn-group a,
 .btn-group button,
 .card button {
   text-decoration: none;
 
-  padding: 9px 13px;
+  padding: 8px 12px;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #168cff,
-      #4d9fff
-    );
+  background: #3b82f6;
 
   color: white;
 
@@ -606,36 +544,26 @@ select {
 
   cursor: pointer;
 
-  transition: all 0.25s ease;
-
-  box-shadow:
-    0 5px 14px rgba(0,120,255,0.18);
+  transition: 0.3s ease;
 }
 
 .btn-group a:hover,
 .btn-group button:hover,
 .card button:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #0076e8,
-      #368fff
-    );
-
-  transform: translateY(-2px);
+  background: #2563eb;
 }
 
 
-/* =========================================================
+/* =========================================
    📊 PROGRESS BAR
-========================================================= */
+========================================= */
 
 .progress-bar {
   width: 100%;
+
   height: 8px;
 
-  background:
-    rgba(255,255,255,0.12);
+  background: #334155;
 
   border-radius: 10px;
 
@@ -647,53 +575,45 @@ select {
 .progress-bar div {
   height: 100%;
 
-  background:
-    linear-gradient(
-      90deg,
-      #168cff,
-      #74c2ff
-    );
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+  );
 
   border-radius: 10px;
 }
 
 
-/* =========================================================
+/* =========================================
    📄 ABOUT PAGE
-========================================================= */
+========================================= */
 
 .about-card {
-  max-width: 600px;
+  width: min(600px, calc(100% - 30px));
 
   margin: 40px auto;
 
   padding: 25px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.17),
-      rgba(255,255,255,0.08)
-    );
+  background: rgba(255,255,255,0.09);
 
-  border:
-    1px solid rgba(255,255,255,0.16);
+  border-radius: 18px;
 
-  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
 
   text-align: center;
 
-  box-shadow:
-    0 12px 35px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
 .about-card h2 {
   margin-top: 20px;
 
-  color: #70baff;
+  color: #7db5ff;
 
   font-size: 20px;
 }
@@ -703,11 +623,11 @@ select {
 
   line-height: 1.7;
 
-  color: #e4edf7;
+  color: #f1f5f9;
 }
 
 .highlight {
-  color: #9bd1ff;
+  color: #b8d7ff;
 
   font-style: italic;
 }
@@ -719,30 +639,26 @@ select {
 }
 
 
-/* =========================================================
+/* =========================================
    🔻 FOOTER
-========================================================= */
+========================================= */
 
 footer {
   text-align: center;
 
-  padding: 18px;
+  padding: 20px 15px;
 
   font-size: 12px;
 
-  color: #d2dfeb;
+  color: #cbd5e1;
 
-  background:
-    rgba(5,25,45,0.35);
-
-  border-top:
-    1px solid rgba(255,255,255,0.10);
+  line-height: 1.6;
 }
 
 
-/* =========================================================
+/* =========================================
    🔥 WIKIPEDIA VIEWER
-========================================================= */
+========================================= */
 
 .viewer {
   position: fixed;
@@ -763,12 +679,7 @@ footer {
 }
 
 .viewer-header {
-  background:
-    linear-gradient(
-      135deg,
-      #06203b,
-      #0d3558
-    );
+  background: #0f172a;
 
   color: white;
 
@@ -777,20 +688,15 @@ footer {
   display: flex;
 
   justify-content: space-between;
-
   align-items: center;
 
-  border-bottom:
-    1px solid rgba(255,255,255,0.12);
+  gap: 10px;
+
+  border-bottom: 1px solid #1e293b;
 }
 
 .viewer-header button {
-  background:
-    linear-gradient(
-      135deg,
-      #168cff,
-      #4d9fff
-    );
+  background: #3b82f6;
 
   border: none;
 
@@ -804,12 +710,13 @@ footer {
 }
 
 .viewer-header button:hover {
-  background: #0877d8;
+  background: #2563eb;
 }
 
 .viewer-header .verified {
   font-size: 13px;
-  color: #72c1ff;
+
+  color: #60a5fa;
 }
 
 .viewer iframe {
@@ -822,9 +729,9 @@ footer {
 }
 
 
-/* =========================================================
+/* =========================================
    🔄 LOADER
-========================================================= */
+========================================= */
 
 .loader {
   position: absolute;
@@ -832,39 +739,33 @@ footer {
   top: 50%;
   left: 50%;
 
-  transform:
-    translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-  border:
-    5px solid rgba(255,255,255,0.12);
+  border: 5px solid #1e293b;
 
-  border-top:
-    5px solid #4db1ff;
+  border-top: 5px solid #3b82f6;
 
   border-radius: 50%;
 
   width: 45px;
   height: 45px;
 
-  animation:
-    spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   100% {
-    transform:
-      translate(-50%, -50%)
-      rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
 
-/* =========================================================
-   📰 NEWS SECTION
-========================================================= */
+/* =========================================
+   📰 NETAVERSE NEWS
+========================================= */
 
 .news-hero {
-  max-width: 900px;
+  width: min(900px, calc(100% - 30px));
 
   margin: 35px auto 10px;
 
@@ -876,7 +777,7 @@ footer {
 .news-label {
   display: inline-block;
 
-  color: #73c1ff;
+  color: #7db5ff;
 
   font-size: 11px;
 
@@ -892,12 +793,11 @@ footer {
 .news-hero h2 {
   margin: 5px 0 12px;
 
-  font-size: 36px;
+  font-size: clamp(29px, 5vw, 36px);
 
   color: #ffffff;
 
-  text-shadow:
-    0 3px 15px rgba(0,0,0,0.25);
+  line-height: 1.2;
 }
 
 .news-hero p {
@@ -905,7 +805,7 @@ footer {
 
   margin: auto;
 
-  color: #e0ebf6;
+  color: #e2e8f0;
 
   font-size: 14px;
 
@@ -913,12 +813,12 @@ footer {
 }
 
 
-/* =========================================================
+/* =========================================
    📰 NEWS SECTION
-========================================================= */
+========================================= */
 
 .news-section {
-  max-width: 1250px;
+  width: min(1250px, 100%);
 
   margin: auto;
 
@@ -930,7 +830,7 @@ footer {
 }
 
 .section-heading span {
-  color: #73c1ff;
+  color: #7db5ff;
 
   font-size: 10px;
 
@@ -944,27 +844,27 @@ footer {
 
   color: white;
 
-  font-size: 24px;
+  font-size: clamp(21px, 3vw, 24px);
 }
 
 
-/* =========================================================
+/* =========================================
    📰 NEWS GRID
-========================================================= */
+========================================= */
 
 .news-container {
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3, minmax(0, 1fr));
 
   gap: 20px;
 }
 
 
-/* =========================================================
+/* =========================================
    📰 NEWS CARD
-========================================================= */
+========================================= */
 
 .news-card {
   position: relative;
@@ -978,18 +878,17 @@ footer {
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0.075)
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.055)
     );
 
-  border:
-    1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.10);
 
-  backdrop-filter: blur(13px);
-  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
   box-shadow:
-    0 12px 32px rgba(0,0,0,0.22);
+    0 10px 30px rgba(0,0,0,0.35);
 
   transition:
     transform 0.3s ease,
@@ -1004,28 +903,23 @@ footer {
 .news-card:hover {
   transform: translateY(-7px);
 
-  border-color:
-    rgba(100,190,255,0.45);
+  border-color: rgba(96,165,250,0.45);
 
   box-shadow:
-    0 18px 42px rgba(0,0,0,0.32);
+    0 18px 40px rgba(0,0,0,0.5);
 }
 
 .featured-news {
-  border-color:
-    rgba(100,190,255,0.30);
+  border-color: rgba(96,165,250,0.25);
 }
 
 
-/* =========================================================
-   NEWS TOP
-========================================================= */
+/* TOP */
 
 .news-top {
   display: flex;
 
   justify-content: space-between;
-
   align-items: center;
 
   gap: 10px;
@@ -1033,11 +927,11 @@ footer {
   padding-bottom: 14px;
 
   border-bottom:
-    1px solid rgba(255,255,255,0.10);
+    1px solid rgba(255,255,255,0.08);
 }
 
 .news-state {
-  color: #73c1ff;
+  color: #7db5ff;
 
   font-size: 10px;
 
@@ -1047,7 +941,7 @@ footer {
 }
 
 .news-date {
-  color: #c4d3e2;
+  color: #b6c2d1;
 
   font-size: 9px;
 
@@ -1055,15 +949,12 @@ footer {
 }
 
 
-/* =========================================================
-   NEWS NUMBER
-========================================================= */
+/* NUMBER */
 
 .news-number {
   margin-top: 15px;
 
-  color:
-    rgba(110,190,255,0.55);
+  color: rgba(125,181,255,0.45);
 
   font-size: 12px;
 
@@ -1073,9 +964,7 @@ footer {
 }
 
 
-/* =========================================================
-   NEWS TITLE
-========================================================= */
+/* TITLE */
 
 .news-card h3 {
   margin: 7px 0 12px;
@@ -1088,14 +977,12 @@ footer {
 }
 
 
-/* =========================================================
-   NEWS DESCRIPTION
-========================================================= */
+/* DESCRIPTION */
 
 .news-card p {
   margin: 0;
 
-  color: #e0ebf5;
+  color: #e2e8f0;
 
   font-size: 13px;
 
@@ -1103,9 +990,7 @@ footer {
 }
 
 
-/* =========================================================
-   NEWS BOTTOM
-========================================================= */
+/* BOTTOM */
 
 .news-bottom {
   margin-top: auto;
@@ -1115,17 +1000,16 @@ footer {
   display: flex;
 
   justify-content: space-between;
-
   align-items: center;
 
   gap: 10px;
 
   border-top:
-    1px solid rgba(255,255,255,0.10);
+    1px solid rgba(255,255,255,0.08);
 }
 
 .news-category {
-  color: #c4d3e2;
+  color: #b6c2d1;
 
   font-size: 9px;
 
@@ -1135,7 +1019,7 @@ footer {
 }
 
 .read-more {
-  color: #73c1ff;
+  color: #7db5ff;
 
   text-decoration: none;
 
@@ -1147,38 +1031,31 @@ footer {
 }
 
 .read-more:hover {
-  color: white;
+  color: #ffffff;
 }
 
 
-/* =========================================================
+/* =========================================
    📩 CONTACT PAGE
-========================================================= */
+========================================= */
 
 .contact-card {
-  max-width: 650px;
+  width: min(650px, calc(100% - 30px));
 
   margin: 40px auto;
 
   padding: 30px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.18),
-      rgba(255,255,255,0.08)
-    );
+  background: rgba(255,255,255,0.09);
 
-  border:
-    1px solid rgba(255,255,255,0.17);
+  border-radius: 20px;
 
-  border-radius: 22px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
 
-  box-shadow:
-    0 15px 40px rgba(0,0,0,0.28);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
 .contact-card h2 {
@@ -1188,32 +1065,30 @@ footer {
 
   text-align: center;
 
-  color: #73c1ff;
-
-  text-shadow:
-    0 3px 12px rgba(0,100,255,0.20);
+  color: #7db5ff;
 }
 
 .contact-intro {
   text-align: center;
 
-  color: #e0ebf5;
+  color: #e2e8f0;
 
   font-size: 14px;
 
-  line-height: 1.6;
+  line-height: 1.7;
 
   margin-bottom: 25px;
 }
+
+
+/* ENQUIRY */
 
 .enquiry-title {
   margin-top: 35px !important;
 }
 
 
-/* =========================================================
-   FORM
-========================================================= */
+/* FORM */
 
 .enquiry-form {
   display: flex;
@@ -1228,7 +1103,7 @@ footer {
 .enquiry-form label {
   margin-top: 10px;
 
-  color: #e0ebf5;
+  color: #e2e8f0;
 
   font-size: 14px;
 }
@@ -1237,19 +1112,15 @@ footer {
 .enquiry-form textarea {
   width: 100%;
 
-  box-sizing: border-box;
+  padding: 12px;
 
-  padding: 13px;
+  border: 1px solid rgba(255,255,255,0.10);
 
-  border:
-    1px solid rgba(255,255,255,0.14);
-
-  border-radius: 11px;
+  border-radius: 10px;
 
   outline: none;
 
-  background:
-    rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.12);
 
   color: white;
 
@@ -1257,46 +1128,41 @@ footer {
 
   font-size: 14px;
 
-  backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease,
+              background 0.2s ease;
 }
 
 .enquiry-form input::placeholder,
 .enquiry-form textarea::placeholder {
-  color: #c4d3e2;
+  color: #aebccc;
 }
 
 .enquiry-form input:focus,
 .enquiry-form textarea:focus {
-  border-color: #55b3ff;
+  border-color: #3b82f6;
 
-  box-shadow:
-    0 0 0 3px rgba(40,160,255,0.12);
+  background: rgba(255,255,255,0.15);
 }
 
 .enquiry-form textarea {
   resize: vertical;
+
+  min-height: 120px;
 }
 
 
-/* =========================================================
-   SEND BUTTON
-========================================================= */
+/* SEND BUTTON */
 
 .enquiry-form button {
   margin-top: 15px;
 
-  padding: 13px;
+  padding: 12px;
 
   border: none;
 
-  border-radius: 11px;
+  border-radius: 10px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #168cff,
-      #52aaff
-    );
+  background: #3b82f6;
 
   color: white;
 
@@ -1306,104 +1172,95 @@ footer {
 
   cursor: pointer;
 
-  transition: all 0.25s ease;
-
-  box-shadow:
-    0 7px 18px rgba(0,120,255,0.20);
+  transition: 0.3s ease;
 }
 
 .enquiry-form button:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #0075df,
-      #328fff
-    );
+  background: #2563eb;
 
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 }
 
 
-/* =========================================================
-   📱 TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-  #candidates,
-  #projectsContainer {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 16px;
-
-    padding: 16px;
-  }
-
-  .news-container {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .card {
-    padding: 13px;
-  }
-
-}
-
-
-/* =========================================================
+/* =========================================
    📱 MOBILE
-========================================================= */
+   0–600px
+========================================= */
 
 @media (max-width: 600px) {
 
   body {
-    background-position: center top;
-    background-size: auto 100vh;
+    background-attachment: scroll;
+
+    background-position: center center;
   }
 
-
-  /* HEADER */
-
   header {
-    padding: 15px 12px;
+    padding: 14px 64px 14px 12px;
   }
 
   header h1 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .tagline {
-    font-size: 12px;
+    font-size: 11px;
+
+    line-height: 1.35;
   }
 
-
-  /* MENU */
-
   .menu-container {
-    right: 9px;
+    right: 10px;
   }
 
   .menu-toggle {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
+
+    border-radius: 11px;
   }
 
   .menu-toggle span {
-    width: 24px;
+    width: 23px;
     height: 3px;
   }
 
   .menu-panel {
-    width: 205px;
+    top: 57px;
 
-    right: -2px;
+    width: 210px;
+
+    max-width: calc(100vw - 20px);
+
+    padding: 12px;
   }
 
+  .menu-panel nav a {
+    padding: 12px;
 
-  /* GRID */
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 47px;
+    height: 47px;
+
+    font-size: 25px;
+  }
+
+  #search {
+    width: calc(100% - 30px);
+
+    font-size: 13px;
+  }
+
+  #filters {
+    margin: 15px;
+  }
+
+  select {
+    width: 100%;
+  }
 
   #candidates,
   #projectsContainer {
@@ -1411,131 +1268,304 @@ footer {
 
     gap: 15px;
 
-    padding: 14px;
+    padding: 15px;
   }
 
-
-  /* CARDS */
-
   .card {
-    padding: 12px;
+    padding: 13px;
 
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .profile {
     height: 180px;
-
-    border-radius: 13px;
   }
 
+  .card h2,
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .about-card {
+    width: calc(100% - 24px);
+
+    margin: 25px auto;
+
+    padding: 20px 17px;
+  }
+
+  .about-card p {
+    font-size: 13px;
+
+    line-height: 1.65;
+  }
+
+  footer {
+    padding: 18px 12px;
+
+    font-size: 11px;
+  }
 
   /* NEWS */
 
   .news-hero {
+    width: calc(100% - 20px);
+
     margin-top: 15px;
 
-    padding: 25px 15px;
+    padding: 22px 10px;
   }
 
   .news-hero h2 {
-    font-size: 29px;
+    font-size: 27px;
   }
 
   .news-hero p {
     font-size: 13px;
+
+    line-height: 1.65;
   }
 
   .news-section {
-    padding:
-      10px 14px 35px;
+    padding: 8px 12px 35px;
+  }
+
+  .section-heading h2 {
+    font-size: 21px;
   }
 
   .news-container {
     grid-template-columns: 1fr;
 
-    gap: 15px;
+    gap: 14px;
   }
 
   .news-card {
-    min-height: 280px;
+    min-height: 0;
 
-    padding: 19px;
+    padding: 18px;
+
+    border-radius: 17px;
   }
 
   .news-card h3 {
     font-size: 18px;
   }
 
+  .news-card p {
+    font-size: 13px;
 
-  /* ABOUT */
-
-  .about-card {
-    margin: 25px 12px;
-
-    padding: 20px;
+    line-height: 1.65;
   }
 
+  .news-top {
+    align-items: flex-start;
+  }
+
+  .news-bottom {
+    margin-top: 22px;
+  }
 
   /* CONTACT */
 
   .contact-card {
-    margin: 20px 12px;
+    width: calc(100% - 24px);
 
-    padding: 20px;
+    margin: 20px auto;
 
-    border-radius: 19px;
-  }
+    padding: 20px 17px;
 
-  .contact-card h2 {
-    font-size: 22px;
+    border-radius: 17px;
   }
 
   .contact-intro {
     font-size: 13px;
+
+    line-height: 1.65;
   }
 
+  .enquiry-form input,
+  .enquiry-form textarea {
+    font-size: 14px;
 
-  /* SOCIAL ICONS */
-
-  .social-icon {
-    width: 48px;
-    height: 48px;
-
-    font-size: 26px;
+    padding: 11px;
   }
 
-
-  /* SEARCH */
-
-  #search {
-    width: 86%;
+  .enquiry-form button {
+    padding: 12px;
   }
 
-}
+  /* VIEWER */
 
+  .viewer-header {
+    padding: 10px;
 
-/* =========================================================
-   📱 VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  header h1 {
-    font-size: 20px;
+    gap: 8px;
   }
 
-  .tagline {
+  .viewer-header .verified {
     font-size: 11px;
   }
 
-  .menu-toggle {
-    width: 45px;
-    height: 45px;
+  .viewer-header button {
+    padding: 7px 11px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================
+   📲 TABLET
+   601–900px
+========================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  body {
+    background-attachment: scroll;
+
+    background-position: center center;
   }
 
-  .menu-toggle span {
-    width: 22px;
+  header {
+    padding: 17px 75px 17px 20px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  .tagline {
+    font-size: 13px;
+  }
+
+  #candidates,
+  #projectsContainer {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    padding: 20px;
+  }
+
+  .profile {
+    height: 190px;
+  }
+
+  .about-card {
+    width: min(650px, calc(100% - 40px));
+  }
+
+  .news-container {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+  .news-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contact-card {
+    width: min(680px, calc(100% - 40px));
+  }
+}
+
+
+/* =========================================
+   💻 LAPTOP / DESKTOP
+   901px+
+========================================= */
+
+@media (min-width: 901px) {
+
+  #candidates,
+  #projectsContainer {
+    grid-template-columns:
+      repeat(auto-fit, minmax(270px, 1fr));
+  }
+
+  .news-container {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================
+   🖥️ LARGE LAPTOP / DESKTOP
+   1200px+
+========================================= */
+
+@media (min-width: 1200px) {
+
+  header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  #candidates,
+  #projectsContainer {
+    gap: 24px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .news-section {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+
+/* =========================================
+   📱 VERY SMALL PHONES
+   360px and below
+========================================= */
+
+@media (max-width: 360px) {
+
+  header {
+    padding-left: 8px;
+    padding-right: 58px;
+  }
+
+  header h1 {
+    font-size: 19px;
+  }
+
+  .tagline {
+    font-size: 10px;
+  }
+
+  .menu-container {
+    right: 7px;
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .menu-panel {
+    width: 195px;
+  }
+
+  .news-hero h2 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 11px;
   }
 
   .profile {
@@ -1543,8 +1573,28 @@ footer {
   }
 
   .contact-card {
-    margin: 15px 8px;
-    padding: 17px;
+    padding: 17px 14px;
+  }
+}
+
+
+/* =========================================
+   ♿ ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
   }
 
-}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+   }
